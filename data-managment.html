@@ -31,21 +31,37 @@
     <!-- Jumbotron for Title -->
     <div class="jumbotron" style="background-color: #20315A ; color: white;">
       <h1 class="text-center">
-        <strong>
-          <i></i>Employee Data Managment</strong>
+        <strong>Employee Data Managment</strong>
       </h1>
       <h2 class="text-center">A Comprehensive Directory of Employee Billable Hours</h2>
     </div>
 
-    <!-- Row for Searching New York Times -->
+    <!-- This row will handle all of the current employees -->
     <div class="row">
       <div class="col-sm-12">
         <br>
-        <!-- First card is for handling the search parameters -->
+
+        <div class="card">
+
+          <div class="card-header">
+            <strong>Current Employees</strong>
+          </div>
+
+          <!-- This main card will hold each of the resulting articles -->
+          <div class="card-body" id="current">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row for adding employees -->
+    <div class="row">
+      <div class="col-sm-12">
+        <br>
+        <!-- First card is for handling the employee parameters -->
         <div class="card">
           <div class="card-header">
-            <strong>
-              <i class="fa fa-list-alt"></i> Search Parameters</strong>
+            <strong>Add Employee</strong>
           </div>
           <div class="card-body">
 
@@ -79,27 +95,6 @@
                 Submit</button>
 
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- This row will handle all of the retrieved articles -->
-    <div class="row">
-      <div class="col-sm-12">
-        <br>
-
-        <!-- This card will initially be made up of a card and wells for each of the articles retrieved -->
-        <div class="card">
-
-          <!-- card Heading for the retrieved articles box -->
-          <div class="card-header">
-            <strong>
-              <i class="fa fa-table"></i> Top Articles</strong>
-          </div>
-
-          <!-- This main card will hold each of the resulting articles -->
-          <div class="card-body" id="article-section">
           </div>
         </div>
       </div>
