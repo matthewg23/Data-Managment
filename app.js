@@ -44,7 +44,7 @@
 
 
       database.ref().push({
-        nmployee: empName,
+        employee: empName,
         role: empRole,
         start: empStart,
         rate: empRate,
