@@ -88,7 +88,6 @@ function renderEmployee(table, employee) {
   var labels = $("<tr>");
   var data = $("<tr>");
   for (item in labelText) {
-    labels.append($("<td>").text(labelText[item]));
     data.append($("<td>").text(employee[item]));
   }
   table.append(labels);
@@ -104,8 +103,11 @@ database.ref().on("value", function (snapshot) {
   var employeeTable = $("#employees");
   employeeTable.empty();
   employeeData = snapshot.val();
+  var label = $("<tr>");
+  for (key in labelText)
+    label.append($("<td>").append($("<strong>").text(labelText[key])));
+  $("#employees").append(label);
   for (item in employeeData) {
-    employeeData[item]["name"] = item;
     renderEmployee(employeeTable, employeeData[item]);
   }
   // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
