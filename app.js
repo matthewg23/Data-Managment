@@ -40,15 +40,13 @@ $("#add").on("click", function () {
   var empRole = $('#role').val().trim();
   var empStart = $('#start').val().trim();
   var empRate = $('#rate').val().trim();
-  var empTotal = empStart * empRate;
 
 
   database.ref().push({
     employee: empName,
     role: empRole,
     start: empStart,
-    rate: empRate,
-    total: empTotal
+    rate: empRate
   });
 });
 // MAIN PROCESS + INITIAL CODE
@@ -115,4 +113,9 @@ database.ref().once("value", function (snapshot) {
 }, function (errorObject) {
   // In case of error this will print the error
   console.log("The read failed: " + errorObject.code);
+});
+
+database.ref().on("value", function(snapshot) {
+  var employee = snapshot.val();
+  renderEmployee($("#employees"), employee);
 });
