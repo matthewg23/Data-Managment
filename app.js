@@ -30,18 +30,13 @@
     // Get a reference to the database service
     var database = firebase.database();
     // Setting initial value of our click counter variable to 0
-    var clickCounter = 0;
+    var employees = [];
     // FUNCTIONS + EVENTS
     // --------------------------------------------------------------------------------
     // On Click of Button
-    $("#click-button").on("click", function() {
-      // Add to clickCounter
-      clickCounter++;
-      //  Store Click Data to Firebase in a JSON property called clickCount
-      // Note how we are using the Firebase .set() method
-      database.ref().set({
-        clickCount: clickCounter
-      });
+    $("#add").on("click", function() {
+      event.preventDefault();
+
     });
     // MAIN PROCESS + INITIAL CODE
     // --------------------------------------------------------------------------------
