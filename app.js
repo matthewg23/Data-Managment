@@ -6,7 +6,7 @@
 
 
 
-  // Your web app's Firebase configuration
+  // Your web app"s Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyBLkDwGWp8iQtg4lgVAvHAYgUKmGom0wJM",
     authDomain: "saturday-class-a7a0c.firebaseapp.com",
@@ -29,27 +29,42 @@
     // --------------------------------------------------------------------------------
     // Get a reference to the database service
     var database = firebase.database();
-    // Setting initial value of our click counter variable to 0
-    var employees = [];
     // FUNCTIONS + EVENTS
     // --------------------------------------------------------------------------------
     // On Click of Button
     $("#add").on("click", function() {
       event.preventDefault();
-
+      
     });
     // MAIN PROCESS + INITIAL CODE
     // --------------------------------------------------------------------------------
     // Using .on("value", function(snapshot)) syntax will retrieve the data
     // from the database (both initially and every time something changes)
     // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
+    var labelText = {
+      "name" : "Employee Name",
+      "role" : "Role",
+      "start" : "Start Date",
+      "worked" : "Months Worked",
+      "rate" : "Monthy Rate ($)",
+      "billed" : "Total Billed ($)"
+    }
     database.ref().on("value", function(snapshot) {
       // Then we console.log the value of snapshot
       console.log(snapshot.val());
       // Update the clickCounter variable with data from the database.
-      clickCounter = snapshot.val().clickCount;
+      var employees = snapshot.val().employees;
       // Then we change the html associated with the number.
-      $("#click-value").text(snapshot.val().clickCount);
+      $("#employees").empty();
+      for (var i = 0; i < employees.length; ++i) {
+        var labels = $("<tr>");
+        var data = $("<tr>");
+        for (item in employees[i]) {
+          labels.append("<td>").text(item);
+          data.append("<td>").text(employees[i][item]);
+        }
+        $("#employees").append(labels + data);
+      }
       // If there is an error that Firebase runs into -- it will be stored in the "errorObject"
       // Again we could have named errorObject anything we wanted.
     }, function(errorObject) {
