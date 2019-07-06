@@ -1,4 +1,5 @@
-
+// <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
 // <!-- TODO: Add SDKs for Firebase products that you want to use
 //      https://firebase.google.com/docs/web/setup#config-web-app -->
@@ -33,7 +34,25 @@
     // On Click of Button
     $("#add").on("click", function() {
       event.preventDefault();
-      
+
+        // Get the input values
+        var empName = $('#name').val().trim();
+        var empRole = $('#role').val().trim();
+        var empStart = $('#start').val().trim();
+        var empRate = $('#rate').val().trim();
+        var empTotal = empStart * empRate; 
+
+
+      database.ref().push({
+        nmployee: empName,
+        role: empRole,
+        start: empStart,
+        rate: empRate,
+        total: empTotal
+      });
+    
+
+    
     });
     // MAIN PROCESS + INITIAL CODE
     // --------------------------------------------------------------------------------
