@@ -55,7 +55,7 @@ $("#add").on("click", function () {
 // from the database (both initially and every time something changes)
 // This will then store the data inside the variable "snapshot". We could rename "snapshot" to anything.
 var labelText = {
-  "name": "Employee Name",
+  "employee": "Employee Name",
   "role": "Role",
   "start": "Start Date",
   "worked": "Months Worked",
