@@ -96,7 +96,7 @@ function renderEmployee(table, employee) {
 }
 
 var employeeData;
-database.ref().once("value", function (snapshot) {
+database.ref().on("value", function (snapshot) {
   // Then we console.log the value of snapshot
   console.log(snapshot.val());
   // Update the clickCounter variable with data from the database.
@@ -113,9 +113,4 @@ database.ref().once("value", function (snapshot) {
 }, function (errorObject) {
   // In case of error this will print the error
   console.log("The read failed: " + errorObject.code);
-});
-
-database.ref().on("value", function(snapshot) {
-  var employee = snapshot.val();
-  renderEmployee($("#employees"), employee);
 });
